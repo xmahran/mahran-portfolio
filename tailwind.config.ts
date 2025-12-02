@@ -55,10 +55,13 @@ const config: Config = {
         },
         "pulse-glow": {
           "0%, 100%": {
-            opacity: 1,
+            opacity: "1",
             boxShadow: "0 0 20px rgba(0, 240, 255, 0.5)",
           },
-          "50%": { opacity: 0.8, boxShadow: "0 0 40px rgba(0, 240, 255, 0.8)" },
+          "50%": {
+            opacity: "0.8",
+            boxShadow: "0 0 40px rgba(0, 240, 255, 0.8)",
+          },
         },
         gradient: {
           "0%, 100%": { backgroundPosition: "0% 50%" },
