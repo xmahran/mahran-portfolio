@@ -82,7 +82,7 @@ export default function ContactForm() {
               <h3 className="text-2xl font-bold text-white mb-2">
                 Message Sent!
               </h3>
-              <p className="text-gray-400">I'll get back to you soon.</p>
+              <p className="text-gray-400">I&apos;ll get back to you soon.</p>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
