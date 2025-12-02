@@ -15,5 +15,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     notFound();
   }
 
-  return <ProjectDetail project={project} />;
+  // Normalize metrics to ensure all values are strings
+  const normalizedProject = {
+    ...project,
+    metrics: Object.fromEntries(
+      Object.entries(project.metrics).map(([key, value]) => [key, value || ""])
+    ) as Record<string, string>,
+  };
+
+  return <ProjectDetail project={normalizedProject} />;
 }

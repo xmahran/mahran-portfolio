@@ -17,6 +17,7 @@ interface Project {
   outcome: string;
   metrics: Record<string, string>;
   image: string;
+  featured?: boolean;
 }
 
 export default function ProjectDetail({ project }: { project: Project }) {
