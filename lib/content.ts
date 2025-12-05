@@ -233,6 +233,73 @@ export const projects = [
     image: "/projects/4th-gen.jpg",
     featured: false,
   },
+  {
+    slug: "scalable-cloud-platform",
+    title: "Multi-Tenant SaaS Cloud Platform",
+    category: "Cloud",
+    description:
+      "A scalable, multi-tenant cloud infrastructure platform built on AWS, enabling businesses to deploy and manage microservices with automated scaling, monitoring, and disaster recovery capabilities.",
+    problem:
+      "Organizations struggle with managing complex cloud infrastructure, requiring manual scaling, monitoring, and disaster recovery setup. Multi-tenant SaaS applications need isolated environments with shared resources while maintaining security and performance.",
+    solution:
+      "Architected and deployed a comprehensive cloud platform using AWS services including EKS (Elastic Kubernetes Service) for container orchestration, RDS for managed databases, S3 for object storage, and CloudFront for CDN. Implemented Infrastructure as Code using Terraform for reproducible deployments across environments. Built automated CI/CD pipelines with GitHub Actions that deploy to staging and production environments. Configured auto-scaling policies based on CPU, memory, and custom metrics. Implemented comprehensive monitoring using CloudWatch, Prometheus, and Grafana for real-time observability. Set up disaster recovery with automated backups, cross-region replication, and failover mechanisms. Created a multi-tenant architecture with namespace isolation in Kubernetes and database-level tenant separation.",
+    techStack: [
+      "AWS",
+      "EKS",
+      "Kubernetes",
+      "Terraform",
+      "Docker",
+      "RDS",
+      "S3",
+      "CloudFront",
+      "CloudWatch",
+      "Prometheus",
+      "Grafana",
+      "GitHub Actions",
+      "PostgreSQL",
+      "Redis",
+      "Nginx",
+    ],
+    useCases: [
+      {
+        title: "E-commerce Platform Scaling",
+        description:
+          "Handled Black Friday traffic spikes by automatically scaling from 5 to 50 pods within minutes, processing 10,000+ concurrent transactions without downtime.",
+      },
+      {
+        title: "Multi-Region Disaster Recovery",
+        description:
+          "Implemented automated failover to secondary AWS region during primary region outage, reducing RTO to under 5 minutes and maintaining 99.99% uptime SLA.",
+      },
+      {
+        title: "Cost Optimization",
+        description:
+          "Reduced cloud costs by 40% through right-sizing instances, implementing spot instances for non-critical workloads, and automated resource scheduling for dev environments.",
+      },
+      {
+        title: "Multi-Tenant SaaS Isolation",
+        description:
+          "Enabled secure multi-tenancy for 100+ clients with isolated Kubernetes namespaces, separate database schemas, and network policies ensuring data privacy and compliance.",
+      },
+      {
+        title: "Real-Time Monitoring & Alerting",
+        description:
+          "Set up comprehensive observability stack detecting anomalies and performance degradation, reducing MTTR from hours to minutes with automated alerting and dashboards.",
+      },
+    ],
+    outcome:
+      "Successfully deployed a production-ready cloud platform supporting 100+ tenants with 99.99% uptime, automated scaling capabilities, and comprehensive monitoring. Reduced infrastructure management overhead by 60% and achieved 40% cost savings through optimization.",
+    metrics: {
+      uptime: "99.99%",
+      tenants: "100+",
+      regions: "Multi-Region",
+      scaling: "Auto-Scale",
+      costReduction: "40%",
+      deployment: "Terraform + CI/CD",
+    },
+    image: "/projects/cloud-platform.jpg",
+    featured: true,
+  },
 ];
 
 export const techStack = [

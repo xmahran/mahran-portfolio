@@ -6,6 +6,11 @@ import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Button from "@/components/ui/Button";
 
+interface UseCase {
+  title: string;
+  description: string;
+}
+
 interface Project {
   slug: string;
   title: string;
@@ -18,6 +23,7 @@ interface Project {
   metrics: Record<string, string>;
   image: string;
   featured?: boolean;
+  useCases?: UseCase[];
 }
 
 export default function ProjectDetail({ project }: { project: Project }) {
@@ -116,12 +122,45 @@ export default function ProjectDetail({ project }: { project: Project }) {
           ))}
         </motion.div>
 
+        {/* Use Cases */}
+        {project.useCases && project.useCases.length > 0 && (
+          <motion.div
+            className="glass rounded-xl p-6 mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
+            <h2 className="text-2xl font-bold text-white mb-6">Use Cases</h2>
+            <div className="space-y-6">
+              {project.useCases.map((useCase, index) => (
+                <motion.div
+                  key={index}
+                  className="border-l-4 border-neon-blue pl-6 py-4"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.7 + index * 0.1, duration: 0.6 }}
+                >
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    {useCase.title}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    {useCase.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
         {/* Outcome */}
         <motion.div
           className="glass rounded-xl p-6 mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6, duration: 0.6 }}
+          transition={{
+            delay: project.useCases ? 0.8 + project.useCases.length * 0.1 : 0.6,
+            duration: 0.6,
+          }}
         >
           <h2 className="text-2xl font-bold text-white mb-4">Outcome</h2>
           <p className="text-gray-300 leading-relaxed text-lg">
