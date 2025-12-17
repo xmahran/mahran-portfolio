@@ -117,6 +117,7 @@ export const projects = [
     },
     image: "/projects/rentova.jpg",
     featured: true,
+    liveUrl: "https://rentova.net",
   },
   {
     slug: "neural-sentiment-analytics",

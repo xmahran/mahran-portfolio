@@ -24,6 +24,7 @@ interface Project {
   image: string;
   featured?: boolean;
   useCases?: UseCase[];
+  liveUrl?: string;
 }
 
 export default function ProjectDetail({ project }: { project: Project }) {
@@ -55,9 +56,23 @@ export default function ProjectDetail({ project }: { project: Project }) {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 gradient-text">
             {project.title}
           </h1>
-          <p className="text-xl text-gray-300 leading-relaxed">
+          <p className="text-xl text-gray-300 leading-relaxed mb-6">
             {project.description}
           </p>
+          {project.liveUrl && (
+            <motion.a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-neon-blue text-dark-bg font-medium rounded-lg hover:bg-neon-cyan transition-all duration-300 glow group"
+            >
+              <span>View Live Website</span>
+              <ExternalLink className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </motion.a>
+          )}
         </motion.div>
 
         {/* Problem & Solution */}
